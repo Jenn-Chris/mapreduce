@@ -40,8 +40,7 @@ for line in sys.stdin:
     # store the 6 elements of the tuple in seperate variables
     date, time, item, category, sales, payment = data
 
-    if category not in ["Computers", "Cameras", "Video Games"]:
-	continue
+  
 
     # Write the key-value combination to standard output (stdout)
     # Ky is the category, value is the sales     

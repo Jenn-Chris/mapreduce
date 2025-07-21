@@ -45,7 +45,8 @@ for line in sys.stdin:
         # to the standart output (stdout)
         # Key and value are seperated by a tab (\t)
         # Line ends with new line (\n)
-        sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_purchases))
+        if count_of_purchases > 114:
+	   sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_purchases))
         # Sum of sales starts again with 0
         count_of_purchases = 0
 
@@ -58,4 +59,5 @@ for line in sys.stdin:
     previous_key = key
 
 # write the last result to stdout
-sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_purchases))
+if count_of_purchases > 114:
+   sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_purchases))
