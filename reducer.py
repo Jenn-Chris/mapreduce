@@ -20,6 +20,7 @@ import sys
 # Cash  455.51
 
 # Sum of all sales (values) is initialized with zero, we just started
+sum_of_sales = 0
 count_of_purchases = 0
 
 # Previous key is initialized with None, we just started
@@ -46,7 +47,8 @@ for line in sys.stdin:
         # Key and value are seperated by a tab (\t)
         # Line ends with new line (\n)
         if count_of_purchases > 114:
-	   sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_purchases))
+	   average = sum_of_sales / count_of_purchases
+	   sys.stdout.write("{0}\t{1}\n".format(previous_key, average))
         # Sum of sales starts again with 0
         count_of_purchases = 0
 
@@ -54,10 +56,12 @@ for line in sys.stdin:
     # a += b is the same as a = a + b
     # the float function transforms the value
     # to a float data type (like decimal)
+    sum_of_sales += float(value)
     count_of_purchases += 1
     # the previous key for the next iteration is the current key of the this iteration 
     previous_key = key
 
 # write the last result to stdout
 if count_of_purchases > 114:
-   sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_purchases))
+   average = sum_of_sales / count_of_purchases
+   sys.stdout.write("{0}\t{1}\n".format(previous_key, average))
